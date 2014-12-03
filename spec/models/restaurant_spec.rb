@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Restaurant do
 
-  before { @restaurant = Restaurant.new(name: "Exmple restaurant", phone: "03-1111-2222", address: "  " ) }
+  before { @restaurant = Restaurant.new(name: "Exmple restaurant", phone: "03-1111-2222", address: "totyo,shinagawa city" ) }
 
   subject { @restaurant }
 

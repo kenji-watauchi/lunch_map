@@ -5,4 +5,10 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+
+  factory :restaurant do
+     name     "gaishi"
+    phone     "03-1111-2222"
+  address     "tokyo,shinagawa city"
+  end
 end
