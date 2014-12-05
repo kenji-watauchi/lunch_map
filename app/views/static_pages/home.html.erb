@@ -1,4 +1,5 @@
 <div class="center hero-unit">
+
   <h1>❀五反田ランチマップ❀</h1>
 
   <h2>
@@ -7,15 +8,13 @@
     lunch_map application.
   </h2>
 
-  この辺パスがまだグチャグチャ
-  <%= link_to "新規ユーザー登録はこちら", signup_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "ログイン", signup_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "ログイン", signin_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "ユーザー新規登録", signup_path, class: "btn btn-large btn-primary" %>
   <br>
 
-  <%= link_to "お店を探す", signup2_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "お店を見る", restaurants_path, class: "btn btn-large btn-primary" %>
   <%= link_to "お店を新規登録", signup2_path, class: "btn btn-large btn-primary" %>
 
 </div>
-
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 

@@ -1,1 +1,10 @@
-<h1>五反田のオイシイレストラン一覧</h1>
+<% provide(:title, 'All restaurants') %>
+<h1>All restaurants</h1>
+
+<ul class="restaurants">
+  <% @restaurants.each do |restaurant| %>
+    <li>
+    <%= link_to restaurant.name, restaurant %>
+    </li>
+  <% end %>
+</ul>

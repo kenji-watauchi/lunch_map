@@ -4,7 +4,7 @@ i<% provide(:title, "Edit user") %>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -21,8 +21,6 @@ i<% provide(:title, "Edit user") %>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 
-  <!--  <%= gravatar_for @user %>
-  <a href="http://gravatar.com/emails">change</a>
-  -->
+    <!-- ここに写真を追加 -->
   </div>
 </div>

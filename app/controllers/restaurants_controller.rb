@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def index
-
+@restaurants = User.all
   end
 
   def show
@@ -19,6 +19,20 @@ class RestaurantsController < ApplicationController
       redirect_to @restaurant
     else
       render 'new'
+    end
+  end
+
+  def edit
+        @restaurant = Restaurant.find(params[:id])
+  end
+
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    if @restaurant.update_attributes(restaurant_params)
+      flash[:success] = "Profile updated"
+      redirect_to @restaurant
+    else
+      render 'edit'
     end
   end
 
