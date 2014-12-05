@@ -44,14 +44,14 @@ describe "Static pages" do
     visit root_path
     click_link "About"
     expect(page).to have_title(full_title('About Us'))
-    click_link "Help"
-    expect(page).to have_title(full_title('Help'))
     click_link "Contact"
     expect(page).to have_title(full_title('Contact'))
-    click_link "Home"
-    click_link "Sign up now!"
-    expect(page).to have_title(full_title('登録'))
-    click_link "sample app"
+    click_link "ユーザー登録"
+    expect(page).to have_title(full_title('ユーザー登録'))
+    click_link "店舗一覧"
+    expect(page).to have_title(full_title(''))
+
+    click_link "五反田ランチマップ！"
     expect(page).to have_title(full_title(''))
   end
 end

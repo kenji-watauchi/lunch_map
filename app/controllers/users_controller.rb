@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = "ユーザー登録完了！ 今日のランチはどこにする？"
-      redirect_to users_path
+      redirect_to @user
     else
-      render :new
+      render :new#ここはハッシュでいいのか？
     end
   end
 

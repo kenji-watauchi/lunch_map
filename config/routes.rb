@@ -1,16 +1,18 @@
 LunchMap::Application.routes.draw do
   resources :users
   resources :restaurants
-
+  resources :sessions, only: [:new, :create, :destroy]
 
 #以下に続くルートの通し方は、書き方が古い（今は使ってはいけない）らしいので、のちほど修正する
-  root "static_pages#home"
-  get "/signup"  => "users#new"
-  get "/help"    => "static_pages#help"
-  get "/about"   =>  "static_pages#about"
-  get "/contact" => "static_pages#contact"
+  root   "static_pages#home"
+  get    "/signup"  => "users#new"
+  get    "/signin"  => "sessions#new"
+  delete "/signout" => "sessions#destroy"
+  get    "/help"    => "static_pages#help"
+  get    "/about"   => "static_pages#about"
+  get    "/contact" => "static_pages#contact"
 
-  get "/signup2" => "restaurants#new"
+  get    "/signup2" => "restaurants#new"
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
