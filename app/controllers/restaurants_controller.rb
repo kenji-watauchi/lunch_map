@@ -1,7 +1,9 @@
 class RestaurantsController < ApplicationController
 
   def index
-@restaurants = Restaurant.all
+    @restaurants = Restaurant.all
+    @q        = Restaurant.search(params[:q])
+    @restaurants = @q.result(distinct: true)
   end
 
   def show
@@ -39,7 +41,7 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phone, :address)
+    params.require(:restaurant).permit(:name, :phone, :address, :genre)
   end
 end
 

@@ -1,5 +1,19 @@
 <% provide(:title, 'All restaurants') %>
-<h1>All restaurants</h1>
+<h1>登録店舗一覧</h1>
+
+<h2>店舗検索</h2>
+
+<%# form_for の代わりに search_form_for を使うことで検索フォームを作成 %>
+<%= search_form_for @q do |f| %>
+
+  <%# start 特定の文字列で始まる商品名で検索 %>
+  <%= f.label :name_start, "店舗名" %>
+  <%= f.search_field :name_start %>
+
+  <%# 検索ボタン %>
+    <%= f.submit %>
+  <% end %>
+  <hr>
 
 <ul class="restaurants">
   <% @restaurants.each do |restaurant| %>
