@@ -30,6 +30,8 @@ GEM
     bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
+    bootstrap-will_paginate (0.0.9)
+      will_paginate
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -55,6 +57,8 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     ffi (1.9.6)
     geocoder (1.2.6)
     gmaps4rails (2.1.2)
@@ -99,6 +103,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.5)
       sprockets-rails (~> 2.0.0)
+    rails-footnotes (4.1.4)
+      rails (>= 3.2)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -168,6 +174,7 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     websocket (1.0.7)
+    will_paginate (3.0.4)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -177,9 +184,11 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
+  bootstrap-will_paginate (= 0.0.9)
   capybara (= 2.1.0)
   coffee-rails (= 4.0.1)
   factory_girl_rails (= 4.2.1)
+  faker (= 1.1.2)
   geocoder
   gmaps4rails
   jbuilder (= 1.0.2)
@@ -189,6 +198,7 @@ DEPENDENCIES
   pry
   pry-rails
   rails (= 4.0.5)
+  rails-footnotes (~> 4.0)
   rails_12factor (= 0.0.2)
   ransack
   rspec-rails (= 2.13.1)
@@ -199,3 +209,4 @@ DEPENDENCIES
   sqlite3 (= 1.3.8)
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
+  will_paginate (= 3.0.4)

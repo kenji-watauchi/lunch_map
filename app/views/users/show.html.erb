@@ -1,12 +1,12 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="span4">
-  <section>
-  <h1>
-    <%= @user.name %>
-    <br>
-    ここに、写真やお店の好みも載せる予定
-  </h1>
-  </section>
+<div class="row"> <!--bootstruapの一部-->
+  <aside class="span4"><!--bootstruapの一部-->
+    <section>
+      <h1>
+        <%= @user.name %>
+        <br>
+        <%= gravatar_for @user %>
+      </h1>
+    </section>
   </aside>
 </div>

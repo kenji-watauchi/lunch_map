@@ -6,9 +6,6 @@ describe "Restaurant Pages" do
 
   describe "index" do
     before do
-      sign_in FactoryGirl.create(:resutaurant)
-      FactoryGirl.create(:restaurant, name: "mesi", phone: "03-1111-2222")
-      FactoryGirl.create(:restaurant, name: "men", phone: "03-2222-3333")
       visit restaurants_path
     end
 
@@ -16,7 +13,7 @@ describe "Restaurant Pages" do
     it { should have_content('All restaurants') }
 
     it "should list each restaurant" do
-      User.all.each do |restaurant|
+      Restaurant.all.each do |restaurant|
         expect(page).to have_selector('li', text: restaurant.name)
       end
     end
@@ -45,13 +42,13 @@ describe "Restaurant Pages" do
 
     describe "with invalid information" do
       it "should not create a restaurant" do
-        expect { click_button submit }.not_to change(User, :count)
+        expect { click_button submit }.not_to change(Restaurant, :count)
       end
     end
 
     describe "with valid information" do
       before do
-        fill_in "Name",         with: "Example User"
+        fill_in "Name",         with: "Example Restaurant"
         fill_in "Phone",        with: "03-1111-2222"
         fill_in "Address",      with: "tokyo,shinagawa city"
       end
@@ -74,7 +71,7 @@ describe "Restaurant Pages" do
     describe "with invalid information" do
       before { click_button "Save changes" }
 
-      it { should have_content('error') }
+      it { should have_content("error") }
     end
 
     describe "with valid information" do
@@ -89,10 +86,10 @@ describe "Restaurant Pages" do
       end
 
       it { should have_title(new_name) }
-      it { should have_selector('div.alert.alert-success') }
-      specify { expect(user.reload.name).to  eq new_name }
-      specify { expect(user.reload.phone).to eq new_phone }
-      specify { expect(user.reload.address).to eq new_address }
+      it { should have_selector("div.alert.alert-success") }
+      specify { expect(restaurant.reload.name).to  eq new_name }
+      specify { expect(restaurant.reload.phone).to eq new_phone }
+      specify { expect(restaurant.reload.address).to eq new_address }
     end
   end
 end
