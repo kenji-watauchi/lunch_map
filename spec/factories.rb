@@ -15,4 +15,9 @@ FactoryGirl.define do
     phone     "03-1111-2222"
   address     "tokyo,shinagawa city"
   end
+
+  factory :micropost do
+    content "Lorem ipsum"
+    user
+  end
 end

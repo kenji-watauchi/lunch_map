@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
-
+  before_filter :filter, only: [:new, :create]
 
   def show
     @user = User.find(params[:id])
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation,:admin)
   end
 
   # Before actions
@@ -60,6 +60,12 @@ class UsersController < ApplicationController
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Please sign in." unless signed_in?
+    end
+  end
+
+  def  filter
+    if current_user.present?
+      redirect_to root_path
     end
   end
 
