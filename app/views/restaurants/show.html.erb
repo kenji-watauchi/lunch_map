@@ -9,6 +9,11 @@
 
   店舗名:<%= @restaurant.name %>
   <br>
+  店舗画像
+  <br>
+  <!--- Modelのstyleで指定した :midium など渡すことでサイズを指定できる -->
+  <%= image_tag @restaurant.photo.url(:medium) %>
+  <br>
   電話番号:<%= @restaurant.phone %>
   <br>
   住所:<%= @restaurant.address %>

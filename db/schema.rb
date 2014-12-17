@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210092624) do
+ActiveRecord::Schema.define(version: 20141217075052) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20141210092624) do
     t.integer  "genre"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "sports", force: true do |t|
@@ -43,6 +48,7 @@ ActiveRecord::Schema.define(version: 20141210092624) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin"
+    t.string   "image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
