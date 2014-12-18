@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141217075052) do
+ActiveRecord::Schema.define(version: 20141217095448) do
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20141217075052) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text     "comment"
   end
 
   create_table "sports", force: true do |t|

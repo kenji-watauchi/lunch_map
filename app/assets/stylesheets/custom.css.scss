@@ -189,4 +189,7 @@ aside {
     }
   }
 
-
+  .input-mysize {
+    width: 550px;
+    height: 60px !important;
+ }/*ここの!importantで設定が上書きされ,高さの記述が反映される  */

@@ -4,8 +4,6 @@
   <section>
   <h2>詳細情報</h2>
   <p>
-  ※ここに画像を入れたい
-  <br>
 
   店舗名:<%= @restaurant.name %>
   <br>
@@ -13,6 +11,7 @@
   <br>
   <!--- Modelのstyleで指定した :midium など渡すことでサイズを指定できる -->
   <%= image_tag @restaurant.photo.url(:medium) %>
+  イチオシポイント:<%= @restaurant.comment %>
   <br>
   電話番号:<%= @restaurant.phone %>
   <br>
