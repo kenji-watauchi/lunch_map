@@ -10,4 +10,7 @@ class Restaurant < ActiveRecord::Base
 
   # ファイルの拡張子を指定（これがないとエラーが発生する）
   validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
+  geocoded_by :address
+  after_validation :geocode
 end

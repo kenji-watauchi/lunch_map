@@ -34,8 +34,8 @@ gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 gem 'ransack'
-gem 'gmaps4rails'
-gem 'geocoder'
+gem 'geokit-rails'
+
 
 
 group :doc do
