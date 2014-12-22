@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20141218083524) do
     t.datetime "photo_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "comment"
   end
 
   create_table "sports", force: true do |t|

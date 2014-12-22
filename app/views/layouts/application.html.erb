@@ -1,22 +1,51 @@
 <!DOCTYPE html>
-<html>
   <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <title><%= full_title(yield(:title)) %></title>
     <%= stylesheet_link_tag    'application', media: 'all',
       'data-turbolinks-track' => true %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <%= csrf_meta_tags %>
       <%= render 'layouts/shim' %>
-    </head>
-    <body>
-      <%= render 'layouts/header' %>
-      <div class = "container">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
-        <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
-    </body>
-  </html>
+      <script type="text/javascript"
+        src="http://maps.googleapis.com/maps/api/js?sensor=true">
+      </script>
+
+      <script type="text/javascript">
+      function initialize() {
+        var latlng = new google.maps.LatLng(35.6227464,139.7210947);
+        var opts = {
+          zoom: 15,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+      }
+    </script>
+
+    <script type="text/javascript">
+      function initialize() {
+      var mapOptions = {
+          center: new google.maps.LatLng(35.6227464,139.7210947),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+         };
+      var map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+      }
+    </script>
+  </head>
+
+  <body onload="initialize()">
+    <%= render 'layouts/header' %>
+    <div class = "container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    <!--  <div id="map_canvas" style="width:500px; height:300px"></div>-->
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>
