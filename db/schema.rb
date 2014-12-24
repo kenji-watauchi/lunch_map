@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218083524) do
+ActiveRecord::Schema.define(version: 20141222083240) do
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_restaurants", force: true do |t|
+    t.integer  "genre_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genres_restaurants", ["genre_id"], name: "index_genres_restaurants_on_genre_id"
+  add_index "genres_restaurants", ["restaurant_id", "genre_id"], name: "index_genres_restaurants_on_restaurant_id_and_genre_id", unique: true
+  add_index "genres_restaurants", ["restaurant_id"], name: "index_genres_restaurants_on_restaurant_id"
 
   create_table "microposts", force: true do |t|
     t.string   "content"

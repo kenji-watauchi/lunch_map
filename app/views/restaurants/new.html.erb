@@ -22,6 +22,11 @@
 
       <%= f.label :address %>
       <%= f.text_field :address %>
+      <br>
+      <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %>
+
+      </div>
+
 
     <!--
      <INPUT type="checkbox" name="restaurant[genre][]" value="0"> 和食

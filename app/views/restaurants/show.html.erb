@@ -17,6 +17,13 @@
   <br>
   住所:<%= @restaurant.address %>
   </p>
+  <br>
+  ジャンル:
+  <% @restaurant.genres.each do |g| %>
+    <li><%= g.name if g.name.present?%></li>
+  <% end %>
+  </p>
+
   <div id="map_canvas" style="width:500px; height:300px"></div>
   </section>
   </aside>
