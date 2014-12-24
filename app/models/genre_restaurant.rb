@@ -1,6 +1,6 @@
 class GenreRestaurant < ActiveRecord::Base
-  belongs_to :restaurant, class_name: "Restaurant"
-  belongs_to :genre, class_name: "Genre"
+  belongs_to :restaurant
+  belongs_to :genre
   validates :restaurant_id, presence: true
   validates :genre_id, presence: true
 end

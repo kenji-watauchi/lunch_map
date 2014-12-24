@@ -17,10 +17,8 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
-    params[:restaurant][:genre_ids].delete_if {|id| id == ""}.each do |genre_id|
-      @restaurant.genres << Genre.find(genre_id)
-    end
-    if @restaurant.save
+      #write_attribute(:genre_ids, Restaurant.wrap(value).reject{|v| v.blank? }.map{|v| v.to_i})
+   if @restaurant.save
       flash[:success] = "登録完了！"
       redirect_to @restaurant
     else
@@ -45,8 +43,6 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phone, :address, :photo, :comment, :genre_ids)
-    params[:grouping][:user_id].delete("")
+    params.require(:restaurant).permit(:name, :phone, :address, :photo, :comment, genres_attributes: [:name])
   end
 end
-
