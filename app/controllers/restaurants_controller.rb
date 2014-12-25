@@ -17,6 +17,10 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
+    params[:restaurant][:genres].each do |id|
+      next if id == ""
+      @restaurant.genres << Genre.find(id)
+    end
       #write_attribute(:genre_ids, Restaurant.wrap(value).reject{|v| v.blank? }.map{|v| v.to_i})
    if @restaurant.save
       flash[:success] = "登録完了！"
@@ -43,6 +47,6 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :phone, :address, :photo, :comment, genres_attributes: [:name])
+    params.require(:restaurant).permit(:name, :phone, :address, :photo, :comment, :genres)
   end
 end

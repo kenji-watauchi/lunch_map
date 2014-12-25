@@ -23,9 +23,7 @@
       <%= f.label :address %>
       <%= f.text_field :address %>
       <br>
-      <%= f.fields_for :genres do |genre_field| %>
-        <%= genre_field.collection_check_boxes :id, Genre.all, :id, :name %>
-      <% end %>
+      <%= f.collection_check_boxes :genres, Genre.all, :id, :name %>
       </div>
 
 

@@ -14,7 +14,6 @@ class Restaurant < ActiveRecord::Base
   has_many :genre_restaurants, dependent: :destroy
   has_many :genres, through: :genre_restaurants
 
-
 =begin
   def categorizing?(genre)
     genre_restaurants.find_by(genre_id)
