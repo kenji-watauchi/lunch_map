@@ -7,13 +7,22 @@
 <%= search_form_for @q do |f| %>
 
   <%# start 特定の文字列で始まる商品名で検索 %>
-  <%= f.label :name_start, "店舗名" %>
-  <%= f.search_field :name_start %>
-
-  <%# 検索ボタン %>
+  <%= f.label :name_cont, "店舗名" %>
+  <%= f.search_field :name_cont %>
+  <div>
+    <%# 検索ボタン %>
     <%= f.submit %>
-  <% end %>
-  <hr>
+  </div>
+
+  <%# ジャンルで検索 %>
+  <%= f.label :genres_name_eq, 'ジャンル (和食、洋食、中華、定食屋、焼き肉、海鮮、丼もの、麺類)' %>
+  <%= f.text_field :genres_name_eq %>
+  <div>
+    <%= f.submit 'ジャンルで検索する' %>
+  </div>
+<% end %>
+
+<hr>
 
 <ul class="restaurants">
   <% @restaurants.each do |restaurant| %>
