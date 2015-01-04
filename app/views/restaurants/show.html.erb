@@ -19,9 +19,11 @@
   住所:<%= @restaurant.address %>
   </p>
   <br>
-  ジャンル:
+  ジャンル
   <% @restaurant.genres.each do |g| %>
-    <li><%= g.name if g.name.present?%></li>
+    <ul type="disc">
+      <li><%= g.name if g.name.present?%></li>
+    </ul>
   <% end %>
   </p>
 
